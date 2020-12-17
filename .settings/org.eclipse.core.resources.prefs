@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//basic/comments.py=utf-8
 encoding//basic/data_type.py=utf-8
 encoding//basic/operator.py=utf-8
+encoding//basic/tuples.py=utf-8
 encoding//basic/vars.py=utf-8
 encoding//demo/demo.py=utf-8
 encoding/<project>=UTF-8
