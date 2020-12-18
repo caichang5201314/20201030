@@ -21,11 +21,10 @@ def division():
     
 def times():
     total = 0
-    for i in range(0, 50, 4):
-        if i <= 50 - 15:
+    for i in range(15, 50, 4):
+        if i <= 50:
             total = total + 1
-    
-    print('%s次可以挑完' % total)
+    print('%s次挑完' %total())
 
 
 def finger_guess():
