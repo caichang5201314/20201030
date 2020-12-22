@@ -46,8 +46,6 @@ class MyExcel():
             end_col = self.total_columns()
         if end_row == None:
             end_row = self.total_rows()
-        else:
-            end_row = end_row
         empinfo = []
         for i in range(start_row, end_row):
             empinfo.append(self.__sheet().row_values(i, start_col, end_col))
@@ -62,4 +60,4 @@ print(my.cell_value(12, 6))
 print(my.row_values(6, 4))
 print(my.col_values(5, 5))
 my.list_of_values(5, 4)
-my.list_of_values(6, 5, 10, 7)
+print(my.list_of_values(6, 5, 10, 7))
