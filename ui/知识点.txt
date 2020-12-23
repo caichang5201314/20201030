@@ -23,6 +23,8 @@
 	id > name > css > xpath(重点)
 	连接
 	内帧：frame 
+	浏览器其他操作
+	下拉
 	
 	
 
