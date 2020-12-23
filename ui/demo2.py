@@ -23,3 +23,5 @@ driver.find_element_by_xpath("//input[@value=' 搜索 ']").click()
 
 #driver.find_element_by_css_selector('.caichang')
 #driver.find_element_by_tag_name(name)
+#//*[@id="listDiv"]/table[1]/tbody/tr[3]/td[2]/span
+
