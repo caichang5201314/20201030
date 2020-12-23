@@ -1,0 +1,29 @@
+1、ui自动化
+	目的：把界面中很麻烦或每次都要回归或觉得不舒服的点抽取出来，写成自动化代码，以后
+	          每次都只需要跑脚本就可以了。能够加快测试速度
+	          
+2、工具：
+	 selenium
+	 
+3、selenium
+	  底层是用js写的，因为js可以操作浏览器，你可以想成把js中对浏览器的各种操作封装
+	  了一下，形成的一个框架
+	  这个框架支持很多语言：java、php、ruby、python
+	  
+4、安装selenium
+	pip install selenium
+	
+5、demo
+	webdriver??????这里就有个故事
+	selenium1.x		webdriver
+		   selenium2.x(webdriver)
+		   selenium3.x
+
+6、元素定位(重点)	
+	id > name > css > xpath(重点)
+	连接
+	内帧：frame 
+	
+	
+
+	   
