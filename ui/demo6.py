@@ -12,15 +12,12 @@ sheet = wb.sheet_by_name('商品信息表')
 
 values= sheet.col_values(0,1)
 
-
-
-
 for i in range(len(values)):
     conn = connect('192.168.1.4','root','root','ecshop',3306)
     cursor = conn.cursor()
     cursor.execute("delete from ecs_goods where goods_name='%s'" %values[i])
     conn.commit()
-     
+
     driver = webdriver.Chrome()
     driver.get('http://192.168.1.4/ecshop/admin')
     driver.maximize_window()
