@@ -1,16 +1,25 @@
 # -*- coding: utf-8 -*-
-from selenium import webdriver
 from time import sleep
+
 from pymysql import connect
+from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+
+from utils.Logger import Logger
+
+logger = Logger('TestGoods').getlog()
+
 
 # 对不起，兄弟，你自己慢慢看吧
 class TestGoods():
     
     def login(self):
+        url = 'http://192.168.1.4/ecshop/admin/privilege.php?act=login'
         driver = webdriver.Chrome()
-        driver.get('http://192.168.1.4/ecshop/admin/privilege.php?act=login')
+        driver.get(url)
+        logger.info('我打开的url地址是' + url)
         driver.maximize_window()
+        logger.info('最大化了浏览器')
         
         driver.find_element_by_name('username').send_keys('caichang')
         driver.find_element_by_name('password').send_keys('caichang1')
@@ -48,16 +57,18 @@ class TestGoods():
         
         sleep(2)
         driver.find_element_by_name('keyword').send_keys('车')
+        logger.info('往文本框输入了一个值：车')
         driver.find_element_by_xpath("//input[@value=' 搜索 ']").click()
-        
+        logger.info('点击搜索按钮')
         sleep(1)
         try:
             search_text = driver.find_element_by_xpath('//*[@id="listDiv"]/table[1]/tbody/tr[3]/td[2]/span').text
             search_total = driver.find_element_by_id('totalRecords').text
 
             cursor = self.get_cursor()
-            cursor.execute("select goods_name from ecs_goods where goods_name like '%车%'")
-            
+            sql = "select goods_name from ecs_goods where goods_name like '%车%'"
+            cursor.execute(sql)
+            logger.info('sql为：' + sql)
             rs = cursor.fetchall()
             # print(rs)
             
@@ -65,12 +76,12 @@ class TestGoods():
             total = cursor.fetchone()
             assert search_text == rs[0][0] and int(search_total) == total[0]
         except NoSuchElementException:
-            print('对不起，没有数据，无法执行删除操作')
+            logger.info('对不起，没有数据，无法执行删除操作')
         finally:
             self.closeall()
             driver.quit()
     
-    def test_isonsale(self):
+    def tes_isonsale(self):
         driver = self.into()
         sleep(1)
         
@@ -96,7 +107,7 @@ class TestGoods():
             self.closeall()
             driver.quit()
         
-    def test_delete(self):
+    def tes_delete(self):
         driver = self.into()
         sleep(1)
         
@@ -105,7 +116,7 @@ class TestGoods():
             cursor = self.get_cursor()
             cursor.execute("select * from ecs_goods where goods_name='%s'" % goods_name)
             result = cursor.fetchone()
-            #print(result)
+            # print(result)
             
             if result:
                 driver.find_element_by_xpath('//*[@id="listDiv"]/table[1]/tbody/tr[3]/td[12]/a[4]/img').click()
@@ -113,7 +124,7 @@ class TestGoods():
                 sleep(1)
                 cursor.execute("select is_delete from ecs_goods where goods_name='%s'" % goods_name)
                 result = cursor.fetchone()
-                #print(result)
+                # print(result)
                 assert result[0] == 1
 
         except NoSuchElementException:
