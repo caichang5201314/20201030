@@ -10,7 +10,7 @@ from utils.Logger import Logger
 logger = Logger('TestGoods').getlog()
 
 
-# 对不起，兄弟，你自己慢慢看吧
+# 对不起，兄弟，你自己慢慢看吧222
 class TestGoods():
     
     def login(self):

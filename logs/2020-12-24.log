@@ -1,0 +1,5 @@
+2020-12-24 17:44:18 TestGoods [INFO] 我打开的url地址是http://192.168.1.4/ecshop/admin/privilege.php?act=login
+2020-12-24 17:44:20 TestGoods [INFO] 最大化了浏览器
+2020-12-24 17:44:26 TestGoods [INFO] 往文本框输入了一个值：车
+2020-12-24 17:44:26 TestGoods [INFO] 点击搜索按钮
+2020-12-24 17:44:27 TestGoods [INFO] sql为：select goods_name from ecs_goods where goods_name like '%车%'
