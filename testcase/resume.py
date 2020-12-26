@@ -42,7 +42,8 @@ for i in range(len(company)):
     sheet.write(i+1,0,company[i])
     if company[i] in black_company:
         # 去除打勾 
-        driver.find_element_by_css_selector('body > div:nth-child(4) > div.j_result > div > div.leftbox > div:nth-child(4) > div.j_joblist > div:nth-child(%d) > div.e_icons.ick' %(i+1)).click()
+        #driver.find_element_by_css_selector('body > div:nth-child(4) > div.j_result > div > div.leftbox > div:nth-child(4) > div.j_joblist > div:nth-child(%d) > div.e_icons.ick' %(i+1)).click()
+        driver.find_element_by_xpath('/html/body/div[2]/div[3]/div/div[2]/div[4]/div[1]/div[%d]/div[1]' %(i+1)).click()
         #点击批量申请
         
 
