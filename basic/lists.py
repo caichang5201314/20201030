@@ -27,3 +27,13 @@ print(empinfo)
 empinfo.clear()
 print(empinfo)
 
+
+list=[23,432,432,5432,564,642,4132,4231,432]
+print(set(list))
+
+print(list.index(4132)) #返回值所对应的下标
+
+
+
+
+
